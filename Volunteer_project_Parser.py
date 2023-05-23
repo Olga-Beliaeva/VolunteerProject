@@ -9,7 +9,7 @@ clears data by templates and returns data in expected format.
 import re
 
 # return date in dd.mm.yyyy
-# replacing any of (:;/,_-) by .
+# replacing any of (:;/,_-) by (.)
 def replace_by_dot(func):
     def wrapper(*args, **kwargs):
         to_replace = func(*args, **kwargs)
@@ -73,7 +73,8 @@ class Parser:
                     d = d if len(d) == 2 else f'0{d}'
                     y = y if len(y) == 4 else f'19{y}' if int(y) > 7 else f'20{y}'
                     dates.append((d + m + y))
-                except: dates.append('')
+                except Exception:
+                    dates.append('')
             else:
                 dates.append('')
         return dates
@@ -90,7 +91,7 @@ class Parser:
             else: contacts.append('')
         return contacts
 
-    def short_name(self, full_name):
+    def short_name(self, full_name: str) -> str:
         """
         return a short name (last + first names)
         provided from a full name (last + first + father names)
@@ -98,10 +99,12 @@ class Parser:
         try:
             last_name, first_name, *args = full_name.split()
             return last_name + ' ' + first_name
-        except: return ''
+        except Exception:
+            return ''
 
 
 if __name__ == '__main__':
+    print('Terminal: runnin Volunteer_progect_Parser.py')
     # any data provided in Test is random and can not match with any personal information
     TEST = [
         "2891 https://ss.korostel.one/?p=829851391  eu 28 Залов Александр Валентинович 1-03-1962 г, р., г. Мариуполь +381232342323",
@@ -118,7 +121,3 @@ if __name__ == '__main__':
             data.parser('digits', num), data.parser('names'),
             data.birthday(birthdays), data.contact(contacts),
             data.parser('link')])
-
-
-
-
