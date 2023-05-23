@@ -18,7 +18,7 @@ import undetected_chromedriver as uc
 
 url = 'https://translate.google.com/?sl=ru&tl=uk&op=translate'
 
-def from_ru_to_ua(name:str) -> str:
+def from_ru_to_ua(name: str) -> str:
     """
     return a name translated (transliterated) to ua
     """
@@ -45,13 +45,8 @@ def from_ru_to_ua(name:str) -> str:
 if __name__ == '__main__':
     # any data provided in Test is random and can not match with any personal information
     TEST = [
-        # "Савельєв",
-        # "Савельев",
         'Савельев Артур Юрьевич',
         'Самарский Игорь Эдуардович'
     ]
     for name in TEST:
         print(from_ru_to_ua(name))
-
-
-
