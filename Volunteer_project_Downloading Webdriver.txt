@@ -1,0 +1,18 @@
+1) check Chrome version:  chrome://version/
+
+2) find Webdriver for your Chrome version:
+https://sites.google.com/chromium.org/driver/downloads?authuser=0
+!NB: find the closest version if there is no 100% match
+
+3) for windows x64 download hromedriver_win32.zip, unzip file and
+save it to C:\chromedriver\chromedriver.exe where chromedriver.exe is a webdriver file name
+
+4) add the webdriver path to the Windows:
+- press «Win» + «R»
+- in the opened window print: systempropertiesadvanced, press «ОК»
+- "System properties" (Свойства системы) -> Additionally (Дополнительно) ->
+Environment Variables (?)(Переменные среды) -> Path (add in the end, after ',' (in 2 windows)):
+C:\chromedriver\
+
+5) check the path: open cmd '/(C:\Users\username>)' and write: path.
+You should see:  'C:\chromedriver'
