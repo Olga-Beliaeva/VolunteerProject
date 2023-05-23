@@ -35,7 +35,7 @@ def russian_male_names():
             # go through all pages and write all found names in the file
             for ind in range(len(links)):
                 browser.get(links[ind])
-                print( browser.find_element(By.TAG_NAME,'h1').text)
+                print(browser.find_element(By.TAG_NAME,'h1').text)
                 file.write('\n')
                 for name in browser.find_elements(By.XPATH, "//div[@class='position_title']"):
                     time.sleep(1)
