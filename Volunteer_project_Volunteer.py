@@ -100,10 +100,10 @@ def volunteer(name:str) -> list:
                 info = browser.find_element(
                        By.XPATH, '//div[@class="field-items"]/div[@class="field-item even"]'
                 ).text
-                pay_attention.append((name_relevant, info, link))
+                pay_attention.append((name_relevant, info, links[tab-1]))
             except Exception as e:
                 print('exception', e)
-                pay_attention.append((name_relevant, link))
+                pay_attention.append((name_relevant, links[tab-1]))
 
             print(f'Volunteer: for name {name} is found {name_relevant}')
         return pay_attention
@@ -121,4 +121,3 @@ if __name__ == '__main__':
     ]
     for name in TEST:
         print(volunteer(name))
-
