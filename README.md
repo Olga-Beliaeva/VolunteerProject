@@ -41,9 +41,11 @@ For security purposes, all data and a chat used for demonstrating the project's 
 
 6. Find https://t.me/voluneer_project and join it
 
-7. Run Volunteer_project_main.py
+7. Run Volunteer_project_Main.py
 
-8. Take a look at https://t.me/voluneer_project
+8. Enter your phone  and the code you received 
+
+9. Take a look at https://t.me/voluneer_project
 
 
 # **Detailed description**
