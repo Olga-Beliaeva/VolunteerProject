@@ -52,16 +52,17 @@ class Father:
 
             # by the pair {first letter:number} in dict we find
             # a line to search the father name by father_name_base,
-            # in case there is nothing found we just pass
+            # in case there is nothing found we just return ''
             try:
                 letter_line = lines[letters_dict[first_letter]]
                 s = re.search(father_name_base, letter_line).start()
                 end = re.compile(r'\w+( |'')')
                 f = end.search(letter_line[s:]).end()
                 father_name = letter_line[s:s+f]
+                return surname+' '+father_name.rstrip()
             except Exception:
-                pass
-            return surname+' '+father_name.rstrip()
+                return ''
+
 
     def name(self) -> str:
         """
@@ -72,6 +73,7 @@ class Father:
 
 
 if __name__ == '__main__':
+    print('Terminal: Running Volunteer_project_Father_name.py')
     # any data provided in Test is random and can not match with any personal information
     Test = [
         'Крайник Александр Михайлович',
@@ -87,6 +89,3 @@ if __name__ == '__main__':
         short_name = _technical[0] + ' ' + _technical[1]
         names = [full_name, short_name, father_name]
         print(names)
-
-
-
