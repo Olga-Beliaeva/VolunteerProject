@@ -29,9 +29,9 @@ For security purposes, all data and a chat used for demonstrating the project's 
 
 # **Guideline**
 
-1. Clone the repository in your folder git clone https://github.com/Olga-Beliaeva/VolunteerProject.git
+1. Clone the repository in your folder: git clone https://github.com/Olga-Beliaeva/VolunteerProject.git
 
-2. Install libraries   pip3 install -r requirements.txt
+2. Install libraries:  pip3 install -r requirements.txt
 
 3. Download Webdriver (see Volunteer_project_Downloading Webdriver.txt for details)
 
