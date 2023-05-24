@@ -11,10 +11,11 @@ Module returns whether a translated name or an exception phrase.
 """
 
 import time
+from selenium import webdriver
 from selenium.webdriver.common.by import By
-# pip install undetected-chromedriver
-import undetected_chromedriver as uc
-
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
 
 url = 'https://translate.google.com/?sl=ru&tl=uk&op=translate'
 
@@ -24,19 +25,18 @@ def from_ru_to_ua(name: str) -> str:
     """
     name = name.lower()
     try:
-        options = uc.ChromeOptions()
-        options.add_argument('--headless')
-        browser = uc.Chrome(use_subprocess=True, options=options)
-        browser.get(url)
-        browser.find_element(By.XPATH, '//textarea[@aria-label="Исходный текст"]').send_keys(name)
-        time.sleep(2)
-        # to reach out a blocked part we need to scroll a page down
-        browser.execute_script("window.scrollTo(500,0)")
-        time.sleep(2)
-        translated = browser.find_element(By.XPATH, '//span[@class="ryNqvb"]').text
-        print('Google: name translation from ru to ua in progress...')
-        browser.close()
-        return translated
+        options = Options()
+        options.add_argument('--ignore-certificate-errors')
+        with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as browser:
+            browser.get(url)
+            browser.find_element(By.XPATH, '//textarea[@aria-label="Исходный текст"]').send_keys(name)
+            time.sleep(2)
+            # to reach out a blocked part we need to scroll a page down
+            browser.execute_script("window.scrollTo(500,0)")
+            time.sleep(2)
+            translated = browser.find_element(By.XPATH, '//span[@class="ryNqvb"]').text
+            print('Google: name translation from ru to ua in progress...')
+            return translated
     except Exception as e:
         # print(e)
         return f'Google: translation for {name} is not available at the moment'
