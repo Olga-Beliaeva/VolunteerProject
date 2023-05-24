@@ -107,6 +107,7 @@ min_ind = 0
 
 # set a timer to collect messages from the chat
 # with convinient time interval
+@repeat(every().day().at("21:30"))
 @repeat(every(1).minutes)
 def main():
     global min_ind
