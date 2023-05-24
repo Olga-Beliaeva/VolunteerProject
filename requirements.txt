@@ -1,5 +1,5 @@
 environs
 selenium
-undetected_chromedriver
+webdriver_manager
 telethon
 schedule
