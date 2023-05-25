@@ -8,6 +8,8 @@ is likely to cause problems for an individual at the border.
 
 This module check presence of a person and his father on Volunteer.su and
 returns a list with found references or an empty list.
+
+V1 with Selenium (human search imitation)
 """
 
 import re
@@ -39,7 +41,7 @@ def volunteer(name:str) -> list:
     Gather found names, birthdays and links in a list
     Return this list
     """
-    print(f'Volunteer: checking name is {name}')
+    print(f'Volunteer: checking {name} on Volunteer.su now')
     full_name = name.lower()
     short_name = re.match(r'\w+ \w+', full_name).group() if len(full_name) > 2 else full_name
     short_name_ua = from_ru_to_ua(short_name).lower()
@@ -89,7 +91,7 @@ def volunteer(name:str) -> list:
             browser.switch_to.window(browser.window_handles[tab])
             time.sleep(2)
 
-            #a full name from an open link is found here
+            # a full name from an open link is found here
             name_relevant_raw = browser.find_element(By.TAG_NAME, 'head').find_element(
                                 By.TAG_NAME, 'title').get_property('textContent')  # ('innerText')
             name_relevant = re.search(r'.*(?=(\|))', name_relevant_raw).group()
@@ -112,12 +114,11 @@ def volunteer(name:str) -> list:
 if __name__ == '__main__':
     # all test names found on Volunteer.ru for  test purpose only
     TEST = [
-        #"Минаков Геннадий Петрович"
-        #"Протасов Дмитрий Иванович"#,
-        #"Токарев Иван Анатольевич"#,
-        "Шах Андрей Витальевич"#,
-        #"Панченко Кирилл Андреевич"
+        "Шах Виталий Андреевич",
+        "Панченко Кирилл Андреевич",
+        "Кучма Вадим Васильевич"
 
     ]
     for name in TEST:
         print(volunteer(name))
+        print('*****************************')
