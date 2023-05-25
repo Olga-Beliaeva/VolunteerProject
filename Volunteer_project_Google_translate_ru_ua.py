@@ -35,7 +35,7 @@ def from_ru_to_ua(name: str) -> str:
             browser.execute_script("window.scrollTo(500,0)")
             time.sleep(2)
             translated = browser.find_element(By.XPATH, '//span[@class="ryNqvb"]').text
-            print('Google: name translation from ru to ua in progress...')
+            print(f'Google: translation for {name} in progress...')
             return translated
     except Exception as e:
         # print(e)
