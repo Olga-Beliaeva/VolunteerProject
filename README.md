@@ -66,10 +66,12 @@ For security purposes, all data and a chat used for demonstrating the project's 
 - checks names from filtered messages with Volunteer.su
 - messages a result back to a message of origin
 
-***Volunteer_project_Volunteer.py***
+***Volunteer_project_Volunteer.py (v1) | Volunteer_project_Volunteer_with_requests.py (v2)***
 
-Module checks presence of a person and his father on Volunteer.su and
+Module checks presence of a person and his father (v1 only) on Volunteer.su and
 returns a message with found references.
+
+v2 set by default
 
 ***Volunteer_project_Parser.py***
 
@@ -77,9 +79,13 @@ Module filters data by provided fields, clears data by templates and returns dat
 
 ***Volunteer_project_Father_name.py***
 
+/valid for v1 only/
+
 Module returns a father's name provided from a person's middle name.
 
 ***Volunteer_project_Google_translate_ru_ua.py***
+
+/valid for v1 only/
 
 Module returns whether a translated name to Ukrainian or an exception phrase.
 Normally we use DeepL API but for demonstration purpose we have replaced DeepL API by Google.
@@ -97,7 +103,7 @@ Provides example of api_id and api_hash
 
 1. for Python < 3.10 “Unexpected exception in the receive loop” may happen during Volunteer_project_Main.py run but it should not affect the process
 
-2. you may incounter with 
+2. while running v1, you may incounter with 
 ERROR: Couldn't read tbsCertificate as SEQUENCE
 ERROR: Failed parsing Certificate
 here you may find a solution: 
