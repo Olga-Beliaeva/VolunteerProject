@@ -3,3 +3,6 @@ selenium
 webdriver_manager
 telethon
 schedule
+lxml
+requests
+bs4
