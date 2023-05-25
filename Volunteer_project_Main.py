@@ -17,6 +17,7 @@ from telethon import TelegramClient
 from schedule import run_pending, repeat, every
 from Volunteer_project_Parser import Parser                  # my modul
 from Volunteer_project_Volunteer import volunteer            # my modul
+from Volunteer_project_Volunteer_with_requests import search # my modul
 
 env = Env()
 env.read_env()
@@ -67,8 +68,15 @@ class Telegram:
                     fit = relevant(message.message)
                     # find name
                     person_full_name = Parser(fit).parser('names').pop().lower()
+
                     # check name with Volunteer.ru
-                    pay_attention = volunteer(person_full_name)
+                    # v1 - with Selenium
+                    # pay_attention = volunteer(person_full_name)
+
+                    # check name with Volunteer.ru
+                    # v2 - with Requests
+                    pay_attention = search(person_full_name)
+                    
                     show = show_result(pay_attention)
                     print(f'Main: check result is following: {show}')
 
