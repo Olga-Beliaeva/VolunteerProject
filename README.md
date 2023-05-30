@@ -1,8 +1,8 @@
-# VolunteerProject 
+# VolunteerProject
 
 This project is a part of a larger project providing volunteer assistance to Ukrainian refugees on the territory of the Russian Federation.
 
-The goal of this project is to automate the verification of data for specific individuals in the Volunteer website's lists. 
+The goal of this project is to automate the verification of data for specific individuals in the Volunteer website's lists.
 
 Volunteer.su is a website where a Russian patriotic initiative group collects and publishes data about military personnel, activists, etc., supporting Ukraine.
 
@@ -14,9 +14,9 @@ The checking chat has been launched for this purpose. The checking prosidure is 
 
 - a messege with a hash tag #check is automaticaly sent to the checking chat
 
-- a message goes through a checking process at the set time: 
+- a message goes through a checking process at the set time:
 
-  - a person's full name + his father first name and surname (specially modeled) are checking with Volunteer.su 
+  - a person's full name + his father first name and surname (specially modeled) are checking with Volunteer.su
 
 - a result is returning to a sender by a hash tag #verdict
 
@@ -43,15 +43,15 @@ For security purposes, all data and a chat used for demonstrating the project's 
 
 4. Download Webdriver (see Volunteer_project_Downloading Webdriver.txt for details)
 
-5. Sign in Telegram and manage your App (see Volunteer_project_Signing_In_Telegram.docx for details) 
+5. Sign in Telegram and manage your App (see Volunteer_project_Signing_In_Telegram.docx for details)
 
-6. Fill in env.example with api_id and api_hash and rename env.example to env. 
+6. Fill in env.example with api_id and api_hash and rename env.example to env.
 
-7. Find https://t.me/voluneer_project and join it
+7. Join to https://t.me/voluneer_project by link https://t.me/+mcHh1q39NCo4Yjhh
 
 8. Run Volunteer_project_Main.py
 
-9. Enter your phone number (the one registred in 4.)  and a code you received 
+9. Enter your phone number (the one registred in 4.)  and a code you received
 
 10. Take a look at https://t.me/voluneer_project
 
@@ -103,8 +103,16 @@ Provides example of api_id and api_hash
 
 1. for Python < 3.10 “Unexpected exception in the receive loop” may happen during Volunteer_project_Main.py run but it should not affect the process
 
-2. while running v1, you may incounter with 
+2. while running v1, you may incounter with
 ERROR: Couldn't read tbsCertificate as SEQUENCE
 ERROR: Failed parsing Certificate
-here you may find a solution: 
+here you may find a solution:
 https://stackoverflow.com/questions/75771237/error-parsing-cert-retrieved-from-aia-as-der-error-couldnt-read-tbscertifi/75772763#75772763
+
+3. If you are experiensing a kind of you-do-not-have-rights-sending-message-to-this-group problem while message back to https://t.me/voluneer_project, try following:
+
+- run Volunteer_project_Find_id.py
+
+- find id of https://t.me/voluneer_project
+
+- replace all https://t.me/voluneer_project by its id in Volunteer_project_Main.py
