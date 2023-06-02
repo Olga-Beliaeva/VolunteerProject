@@ -47,7 +47,7 @@ For security purposes, all data and a chat used for demonstrating the project's 
 
 6. Fill in env.example with api_id and api_hash and rename env.example to env.
 
-7. Join to https://t.me/voluneer_project by link https://t.me/+mcHh1q39NCo4Yjhh
+7. Join to https://t.me/volunteer_project by link https://t.me/+mcHh1q39NCo4Yjhh
 
 8. Run Volunteer_project_Main.py
 
