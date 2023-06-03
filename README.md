@@ -2,7 +2,15 @@
 
 This project is a part of a larger project providing volunteer assistance to Ukrainian refugees on the territory of the Russian Federation.
 
-The goal of this project is to automate the verification of data for specific individuals in the Volunteer website's lists.
+The goal of this project is to automate* the verification of data for specific individuals** in the Volunteer website's lists.
+
+-----
+(*) due to its obvious limitations verification is switched to automate mode only when volunteers can't provide a manual check
+
+(**) verification is provided for men 16 - 65 y.o.
+
+
+# Info
 
 Volunteer.su is a website where a Russian patriotic initiative group collects and publishes data about military personnel, activists, etc., supporting Ukraine.
 
@@ -22,16 +30,6 @@ The checking chat has been launched for this purpose. The checking prosidure is 
 
 For security purposes, all data and a chat used for demonstrating the project's functionality is fictional or specially designed and some details are reduced
 or changed.
-
-# Motivation
-
-Volunteer.su is a website where a Russian patriotic initiative group collects and publishes data about military personnel, activists, etc., supporting Ukraine.
-
-Through trial and error, it has been discovered that being listed on the Volunteer website is likely to cause problems for individuals at the border.
-
-If a person or his father is listed on the website, he’d better to be be helped separately from other refugees due to his security and security of others.
-
-For security purposes, all data and a chat used for demonstrating the project's functionality is fictional or specially designed and some details are reduced.
 
 # **Guideline**
 
@@ -60,9 +58,10 @@ For security purposes, all data and a chat used for demonstrating the project's 
 
 ***Volunteer_project_Main.py***
 
+Module
 - connects to a specified Telegram chat
 - goes through a given range of message ids
-- filters relevant messages only
+- filters relevant messages 
 - checks names from filtered messages with Volunteer.su
 - messages a result back to a message of origin
 
@@ -113,6 +112,6 @@ https://stackoverflow.com/questions/75771237/error-parsing-cert-retrieved-from-a
 
 - run Volunteer_project_Find_id.py
 
-- find id of https://t.me/voluneer_project
+- find id of https://t.me/volunteer_project
 
-- replace all https://t.me/voluneer_project by its id in Volunteer_project_Main.py
+- replace all https://t.me/volunteer_project by its id in Volunteer_project_Main.py
